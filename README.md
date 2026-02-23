@@ -1,4 +1,4 @@
-# KayStichs
+# KayStichs (APP)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
@@ -20,12 +20,11 @@ A world where anyone, anywhere can access quality education, earn while learning
 
 ## Packages
 
-| Package                             | Description                                     | Tech Stack                   |
-| :---------------------------------- | :---------------------------------------------- | :--------------------------- |
-| [`contracts`](./packages/contracts) | Soroban smart contracts for credential issuance | Rust, Soroban                |
-| [`api`](./packages/api)             | Backend API for user management and rewards     | Node.js, Express, PostgreSQL |
-| [`app`](./packages/app)             | Mobile-first PWA frontend                       | React, TypeScript, Tailwind  |
-| [`shared`](./packages/shared)       | Shared types and utilities                      | TypeScript                   |
+| Package                                                         | Description                                     | Tech Stack                           |
+| :-------------------------------------------------------------- | :---------------------------------------------- | :----------------------------------- |
+| [`contracts`](https://github.com/kaystichs/kaystichs-contracts) | Soroban smart contracts for credential issuance | Rust, Soroban                        |
+| [`api`](https://github.com/kaystichs/kaystichs-api)             | Backend API for user management and rewards     | Node.js, Express, PostgreSQL         |
+| [`app`](https://github.com/kaystichs/kaystichs)                 | Mobile-first PWA frontend                       | React, Next.js, TypeScript, Tailwind |
 
 ## Architecture
 
@@ -46,7 +45,7 @@ A world where anyone, anywhere can access quality education, earn while learning
 
 For detailed architecture, see [ARCHITECTURE.md](./docs/ARCHITECTURE.md).
 
-## 🛠️ Getting Started
+## Getting Started
 
 ### Prerequisites
 
@@ -59,15 +58,14 @@ For detailed architecture, see [ARCHITECTURE.md](./docs/ARCHITECTURE.md).
 
 ```bash
 # Clone the repository
-git clone https://github.com/toneflix/kaystichs.git
-cd kaystichs
+git clone https://github.com/kaystichs/kaystichs-api.git
+cd kaystichs-api
 
 # Install dependencies
 pnpm install
 
 # Set up environment variables
-cp packages/api/.env.example packages/api/.env
-cp packages/app/.env.example packages/app/.env
+cp .env.example .env
 
 # Run development environment
 pnpm dev
