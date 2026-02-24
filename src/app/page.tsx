@@ -345,18 +345,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── FOOTER ──
-      <footer style={{ borderTop: '1px solid #E5E7EB', background: '#fff', padding: '24px' }}>
-        <div className="footer-inner" style={{ maxWidth: 1200, margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: 12 }}>
-          <span style={{ fontSize: 18, fontWeight: 800, color: '#0070B6' }}>Learnault</span>
-          <div style={{ display: 'flex', gap: 24, flexWrap: 'wrap' }}>
-            {['About', 'Careers', 'Blog', 'Privacy', 'Terms'].map(l => (
-              <a key={l} href="#" className="footer-link">{l}</a>
-            ))}
-          </div>
-          <span style={{ fontSize: 12, color: '#D1D5DB' }}>© 2025 Learnault Inc.</span>
-        </div>
-      </footer> */}
     </>
   )
 }
