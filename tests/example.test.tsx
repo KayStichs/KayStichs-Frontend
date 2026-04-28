@@ -7,6 +7,8 @@ describe('Home Page', () => {
         render(<Home />);
         expect(screen.getByText(/Build Your Skills & Earn/i)).toBeInTheDocument();
         expect(screen.getByText(/Master Stellar/i)).toBeInTheDocument();
+        expect(screen.getByText(/Build real things/i)).toBeInTheDocument();
+        expect(screen.getByRole('heading', { name: /NFT Marketplace/i })).toBeInTheDocument();
     });
 
     it('checks if environment variables are loaded', () => {
