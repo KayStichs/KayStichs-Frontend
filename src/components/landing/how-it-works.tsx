@@ -1,3 +1,4 @@
+import React from "react";
 import { Syne } from "next/font/google";
 
 const syne = Syne({
@@ -8,7 +9,7 @@ const syne = Syne({
 type Step = {
   title: string;
   description: string;
-  icon: JSX.Element;
+  icon: React.ReactNode;
 };
 
 const BookIcon = () => (
