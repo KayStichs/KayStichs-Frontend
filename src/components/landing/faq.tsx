@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 interface FAQItem {
   question: string;
@@ -7,29 +7,29 @@ interface FAQItem {
 
 const faqData: FAQItem[] = [
   {
-    question: 'What is Learn_ault?',
+    question: "What is Learn_ault?",
     answer:
-      'Learn_ault is an innovative platform where you can learn new skills and earn rewards simultaneously. We combine education with incentives to keep you motivated on your learning journey.',
+      "Learn_ault is an innovative platform where you can learn new skills and earn rewards simultaneously. We combine education with incentives to keep you motivated on your learning journey.",
   },
   {
-    question: 'How do I earn rewards?',
+    question: "How do I earn rewards?",
     answer:
-      'You earn rewards automatically by completing learning modules, passing quizzes, and actively participating in community challenges.',
+      "You earn rewards automatically by completing learning modules, passing quizzes, and actively participating in community challenges.",
   },
   {
-    question: 'Are certificates recognized?',
+    question: "Are certificates recognized?",
     answer:
-      'Yes, our certificates are partnered with industry leaders and can be verified seamlessly for absolute authenticity.',
+      "Yes, our certificates are partnered with industry leaders and can be verified seamlessly for absolute authenticity.",
   },
   {
-    question: 'Is it free to use?',
+    question: "Is it free to use?",
     answer:
-      'We offer a robust free tier to get you started, along with premium pathways for advanced certifications and higher earning potential.',
+      "We offer a robust free tier to get you started, along with premium pathways for advanced certifications and higher earning potential.",
   },
   {
-    question: 'Do I need crypto knowledge?',
+    question: "Do I need crypto knowledge?",
     answer:
-      'Not at all! Our platform is designed to be incredibly user-friendly for beginners. Any technical aspects operate behind the scenes.',
+      "Not at all! Our platform is designed to be incredibly user-friendly for beginners. Any technical aspects operate behind the scenes.",
   },
 ];
 
@@ -66,10 +66,12 @@ export const FAQ: React.FC = () => {
                 <span className="font-semibold text-left text-gray-800 text-base sm:text-lg">
                   {item.question}
                 </span>
-                
+
                 <span
                   className={`flex items-center justify-center w-8 h-8 rounded-full transition-transform duration-300 ease-in-out ${
-                    isOpen ? 'rotate-180 text-gray-900 bg-gray-100' : 'rotate-0 text-gray-500 group-hover:bg-gray-100'
+                    isOpen
+                      ? "rotate-180 text-gray-900 bg-gray-100"
+                      : "rotate-0 text-gray-500 group-hover:bg-gray-100"
                   }`}
                 >
                   <svg
@@ -79,7 +81,11 @@ export const FAQ: React.FC = () => {
                     stroke="currentColor"
                     strokeWidth={2}
                   >
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M19 9l-7 7-7-7"
+                    />
                   </svg>
                 </span>
               </button>
@@ -88,7 +94,9 @@ export const FAQ: React.FC = () => {
                 id={panelId}
                 role="region"
                 className={`grid transition-all duration-300 ease-in-out ${
-                  isOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'
+                  isOpen
+                    ? "grid-rows-[1fr] opacity-100"
+                    : "grid-rows-[0fr] opacity-0"
                 }`}
               >
                 <div className="overflow-hidden">
@@ -105,4 +113,4 @@ export const FAQ: React.FC = () => {
   );
 };
 
-export defalt FAQ;
+export default FAQ;
