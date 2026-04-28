@@ -1,3 +1,4 @@
+"use client"; // This directive marks the component as a Client Component
 import React, { useState } from "react";
 
 interface FAQItem {
