@@ -1,5 +1,6 @@
 import Hero from "@/components/landing/hero";
 import WhyKayStichs from "@/components/landing/why-kaystichs";
+import LearningPaths from "@/components/landing/learning-paths";
 import Testimonial from "@/components/landing/testimonial";
 import FAQ from "@/components/landing/FAQ";
 import Footer from "@/components/landing/footer";
@@ -10,6 +11,7 @@ const Home = () => {
     <main>
       <Hero />
       <WhyKayStichs />
+      <LearningPaths />
       <Testimonial />
       <FAQ />
       <ValueProposition/>
