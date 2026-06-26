@@ -61,7 +61,7 @@ const reasons: Reason[] = [
 
 const WhyLearnault = () => {
   return (
-    <section className="bg-[#F8F9FB] px-4 py-20 sm:px-6 lg:px-8 lg:py-35.5">
+    <section id="why-learnault" className="bg-[#F8F9FB] px-4 py-20 sm:px-6 lg:px-8 lg:py-35.5">
       <div className="mx-auto max-w-260">
         <div className="mx-auto max-w-170 text-center">
           <h2

@@ -39,7 +39,7 @@ export const FAQ: React.FC = () => {
   };
 
   return (
-    <section className="w-full py-20 px-4 bg-white flex flex-col items-center">
+    <section id="faq" className="w-full py-20 px-4 bg-white flex flex-col items-center">
       {/* Title with tighter tracking and specific Slate color to match Figma */}
       <h2 className="text-3xl md:text-4xl font-bold text-[#0F172A] mb-12 text-center tracking-tight">
         Frequently Asked Questions

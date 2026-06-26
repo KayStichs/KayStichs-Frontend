@@ -126,7 +126,7 @@ const LearningPaths = () => {
   };
 
   return (
-    <section className="bg-white px-4 py-20 sm:px-6 lg:px-8 lg:py-24">
+    <section id="learning-paths" className="bg-white px-4 py-20 sm:px-6 lg:px-8 lg:py-24">
       <div className="mx-auto max-w-[1180px]">
         <header className="max-w-2xl">
           <TierBadge label="Stellar Learning Path" />
