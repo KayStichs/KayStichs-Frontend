@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Asset Converter & Saver</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; }
+    textarea { width: 100%; height: 100px; font-family: monospace; margin-bottom: 20px; }
+    .status { font-weight: bold; color: green; margin-bottom: 10px; }
+    .preview { max-width: 300px; border: 1px solid #ccc; margin-top: 10px; }
+  </style>
+</head>
+<body>
+  <h1>Asset Converter & Saver</h1>
+  <p>This page loads heavy SVG/JPG assets, converts them to WebP, and automatically saves them back to the disk.</p>
+
+  <div>
+    <h2>1. Hero People Collage</h2>
+    <div id="status-people" class="status">Loading hero-people.svg (41 MB)...</div>
+    <textarea id="output-people" placeholder="WebP base64 output will appear here..."></textarea>
+    <div id="preview-people-container"></div>
+  </div>
+
+  <div>
+    <h2>2. Hero Preposition Background</h2>
+    <div id="status-preposition" class="status">Loading hero-preposition.jpg (4.8 MB)...</div>
+    <textarea id="output-preposition" placeholder="WebP base64 output will appear here..."></textarea>
+    <div id="preview-preposition-container"></div>
+  </div>
+
+  <script>
+    function convertAndSave(src, targetFilename, statusId, outputId, previewContainerId, customWidth, customHeight) {
+      const statusDiv = document.getElementById(statusId);
+      const outputText = document.getElementById(outputId);
+      const previewContainer = document.getElementById(previewContainerId);
+
+      const img = new Image();
+      img.crossOrigin = "anonymous";
+      img.onload = function() {
+        statusDiv.innerText = "Rendering to canvas...";
+        
+        const width = customWidth || img.naturalWidth || img.width;
+        const height = customHeight || img.naturalHeight || img.height;
+        
+        const canvas = document.createElement('canvas');
+        canvas.width = width;
+        canvas.height = height;
+        
+        const ctx = canvas.getContext('2d');
+        ctx.drawImage(img, 0, 0, width, height);
+        
+        statusDiv.innerText = "Encoding to WebP...";
+        try {
+          const webpData = canvas.toDataURL('image/webp', 0.85);
+          outputText.value = webpData;
+          
+          statusDiv.innerText = "Uploading to server...";
+          fetch('/save', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ filename: targetFilename, base64: webpData })
+          })
+          .then(res => {
+            if (!res.ok) throw new Error('HTTP ' + res.status);
+            return res.json();
+          })
+          .then(data => {
+            statusDiv.innerText = "Done! Saved to public/assets/" + targetFilename + " (" + Math.round(data.size / 1024) + " KB, dimensions: " + width + "x" + height + ")";
+            
+            const previewImg = new Image();
+            previewImg.src = webpData;
+            previewImg.className = "preview";
+            previewContainer.appendChild(previewImg);
+          })
+          .catch(err => {
+            statusDiv.innerText = "Upload failed: " + err.message;
+            statusDiv.style.color = "red";
+          });
+        } catch (e) {
+          statusDiv.innerText = "Error: " + e.message;
+          statusDiv.style.color = "red";
+        }
+      };
+      img.onerror = function() {
+        statusDiv.innerText = "Failed to load image.";
+        statusDiv.style.color = "red";
+      };
+      img.src = src;
+    }
+
+    // Run conversions
+    convertAndSave('assets/hero-people.svg', 'hero-people.webp', 'status-people', 'output-people', 'preview-people-container', 1048, 1238);
+    convertAndSave('assets/hero-preposition.jpg', 'hero-preposition.webp', 'status-preposition', 'output-preposition', 'preview-preposition-container', 1920, 1080);
+  </script>
+</body>
+</html>

@@ -1,7 +1,7 @@
 "use client";
 
 import { useId, useState } from "react";
-import { Pencil, AlertCircle } from "lucide-react";
+import { Icon } from "./Icon";
 
 const MAX = 200;
 
@@ -54,10 +54,10 @@ export function Textarea({
   const isFilled = state === "filled";
 
   const borderClass = isError
-    ? "border-[#DC2626] focus:outline-none"
+    ? "border-[#DC2626]"
     : state === "focus"
-    ? "border-indigo-500 focus:outline-none"
-    : "border-[#E2E8F0] focus:outline-none";
+    ? "border-[#6366F1] ring-1 ring-[#6366F1]"
+    : "border-[#E2E8F0]";
 
   const textClass = isError
     ? "text-[#DC2626]"
@@ -77,7 +77,7 @@ export function Textarea({
         htmlFor={id}
         className="flex items-center gap-1.5 text-[12px] font-medium text-[#475569]"
       >
-        <Pencil size={12} aria-hidden="true" />
+        <Icon name="pencil" size={12} aria-hidden="true" />
         {label}
       </label>
 
@@ -97,6 +97,7 @@ export function Textarea({
           "w-full resize-none rounded-lg border bg-white px-3 py-2 text-[16px] placeholder-[#94A3B8] transition-colors",
           borderClass,
           textClass,
+          "outline-none"
         ].join(" ")}
       />
 
@@ -107,7 +108,7 @@ export function Textarea({
           role="alert"
           className="flex items-center gap-1 text-[12px] text-[#DC2626]"
         >
-          <AlertCircle size={12} aria-hidden="true" />
+          <Icon name="error" size={12} aria-hidden="true" />
           Reached the {maxLength} text limit
         </p>
       ) : (

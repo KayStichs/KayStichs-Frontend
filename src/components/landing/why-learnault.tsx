@@ -1,5 +1,5 @@
-import Image from "next/image";
 import { Syne } from "next/font/google";
+import { Icon, type IconName } from "../ui/Icon";
 
 const syne = Syne({
   subsets: ["latin"],
@@ -9,11 +9,7 @@ const syne = Syne({
 type Reason = {
   title: string;
   description: string;
-  icon: string;
-  iconSize?: {
-    width: number;
-    height: number;
-  };
+  icon: IconName;
 };
 
 const reasons: Reason[] = [
@@ -21,41 +17,37 @@ const reasons: Reason[] = [
     title: "Earn While Learning",
     description:
       "Complete courses and earn LEARN tokens that have real value on the Stellar blockchain.",
-    icon: "/assets/why-learnault/earn.svg",
-    iconSize: {
-      width: 47,
-      height: 40,
-    },
+    icon: "money-bag",
   },
   {
     title: "On-chain Credentials",
     description:
       "Receive verifiable certificates that employers can instantly validate.",
-    icon: "/assets/why-learnault/protection.svg",
+    icon: "shield",
   },
   {
     title: "Global Community",
     description:
       "Connect with learners and employers from Africa, Latin America, and Southeast Asia.",
-    icon: "/assets/why-learnault/community.svg",
+    icon: "users",
   },
   {
     title: "Secure Wallets",
     description:
       "Your earnings are safely stored in Stellar wallets that you control.",
-    icon: "/assets/why-learnault/digital-wallet.svg",
+    icon: "wallet",
   },
   {
     title: "Quick Payouts",
     description:
       "Withdraw your earnings anytime with fast, low-fee blockchain transactions.",
-    icon: "/assets/why-learnault/payouts.svg",
+    icon: "zap",
   },
   {
     title: "No Borders",
     description:
       "Access opportunities regardless of your location or financial background.",
-    icon: "/assets/why-learnault/global.svg",
+    icon: "globe",
   },
 ];
 
@@ -84,14 +76,12 @@ const WhyLearnault = () => {
                 index % 3 === 1 ? "lg:border-x lg:border-[#DDE4EC]" : ""
               }`}
             >
-              <div className="flex h-9 w-12 items-start lg:h-11">
-                <Image
-                  src={reason.icon}
-                  alt=""
-                  width={reason.iconSize?.width ?? 40}
-                  height={reason.iconSize?.height ?? 40}
+              <div className="flex h-9 w-12 items-start lg:h-11 text-[#F4B42A]">
+                <Icon
+                  name={reason.icon}
+                  size="xl"
                   aria-hidden="true"
-                  className="h-9 w-9 object-contain [filter:brightness(0)_saturate(100%)_invert(67%)_sepia(94%)_saturate(1054%)_hue-rotate(354deg)_brightness(101%)_contrast(93%)] lg:h-11 lg:w-11 lg:[filter:none]"
+                  className="h-9 w-9 lg:h-11 lg:w-11"
                 />
               </div>
 

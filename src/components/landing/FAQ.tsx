@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import { ChevronDown } from "lucide-react";
+import { Icon } from "../ui/Icon";
 
 interface FAQItem {
   question: string;
@@ -74,7 +74,7 @@ export const FAQ: React.FC = () => {
                     isOpen ? "rotate-180 text-[#FDE047]" : "text-gray-400"
                   }`}
                 >
-                  <ChevronDown size={20} strokeWidth={2} />
+                  <Icon name="chevron-down" size={20} strokeWidth={2} />
                 </span>
               </button>
 

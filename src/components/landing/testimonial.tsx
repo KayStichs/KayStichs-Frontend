@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Quote, User } from "lucide-react";
+import { Icon } from "../ui/Icon";
 
 const testimonials = [
   {
@@ -89,7 +89,7 @@ const Testimonial = () => {
                   className="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0"
                   style={{ backgroundColor: "#F1F5F9" }}
                 >
-                  <User className="w-6 h-6" style={{ color: "#94A3B8" }} />
+                  <Icon name="user" className="w-6 h-6" color="#94A3B8" />
                 </div>
 
                 <div>

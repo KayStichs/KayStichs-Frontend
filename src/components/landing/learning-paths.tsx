@@ -1,36 +1,9 @@
 "use client";
 
-import type { StaticImageData } from "next/image";
-import Image from "next/image";
 import { useRef } from "react";
-import {
-  articleIcon,
-  chevronRightIcon,
-  clockIcon,
-  playIcon,
-  sproutIcon,
-} from "../../../public/assets";
+import { Icon } from "../ui/Icon";
 
-const learningPathIcons: Record<
-  "clock" | "sprout" | "play" | "article" | "chevronRight",
-  StaticImageData
-> = {
-  clock: clockIcon,
-  sprout: sproutIcon,
-  play: playIcon,
-  article: articleIcon,
-  chevronRight: chevronRightIcon,
-};
-
-type PathIconName = keyof typeof learningPathIcons;
-
-const pathIconSizes: Record<PathIconName, { width: number; height: number }> = {
-  clock: { width: 20, height: 20 },
-  sprout: { width: 16, height: 16 },
-  play: { width: 16, height: 16 },
-  article: { width: 16, height: 16 },
-  chevronRight: { width: 20, height: 20 },
-};
+type PathIconName = "clock" | "sprout" | "play" | "article" | "chevronRight";
 
 const PathIcon = ({
   name,
@@ -39,14 +12,26 @@ const PathIcon = ({
   name: PathIconName;
   className?: string;
 }) => {
-  const size = pathIconSizes[name];
+  const iconMap = {
+    clock: "clock" as const,
+    sprout: "sprout" as const,
+    play: "play" as const,
+    article: "article" as const,
+    chevronRight: "chevron-right" as const,
+  };
+
+  const iconSizes = {
+    clock: 20,
+    sprout: 16,
+    play: 16,
+    article: 16,
+    chevronRight: 20,
+  };
 
   return (
-    <Image
-      src={learningPathIcons[name]}
-      alt=""
-      width={size.width}
-      height={size.height}
+    <Icon
+      name={iconMap[name]}
+      size={iconSizes[name]}
       className={className}
       aria-hidden
     />
