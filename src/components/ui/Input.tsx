@@ -1,3 +1,4 @@
+
 import { InputHTMLAttributes, ReactNode } from "react";
 import { Mail, CheckCircle2, XCircle, Info } from "lucide-react";
 
@@ -78,6 +79,7 @@ export function Input({
       {/* Error message */}
       {showError && (
         <p id={errorId} role="alert" className="text-xs text-[#DC2626]">
+
           {errorMessage}
         </p>
       )}
