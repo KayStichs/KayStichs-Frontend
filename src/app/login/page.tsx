@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Input } from "@/components/ui/Input";
+import TextInput from "@/components/form/TextInput";
 import { Button } from "@/components/ui/Button";
 
 // Frontend/design only — no real authentication. Validation below is purely
@@ -57,8 +57,8 @@ export default function LoginPage() {
           </div>
 
           <form className="flex flex-col gap-4" onSubmit={handleSubmit} noValidate>
-            <Input
-              variant="email"
+            <TextInput
+              type="email"
               label="Email address"
               placeholder="Enter your email"
               value={email}
@@ -68,15 +68,16 @@ export default function LoginPage() {
                 emailError
                   ? "error"
                   : email && emailValid
-                    ? "filled"
+                    ? "success"
                     : "default"
               }
               errorMessage="Please enter a valid email address"
             />
 
             <div className="flex flex-col gap-1">
-              <Input
-                variant="pin"
+              <TextInput
+                type="password"
+                inputMode="numeric"
                 label="PIN"
                 placeholder="Enter your 6-digit PIN"
                 value={pin}

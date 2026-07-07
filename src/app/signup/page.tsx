@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { Syne } from "next/font/google";
 import { CheckCircle } from "lucide-react";
-import { Input } from "@/components/ui/Input";
+import TextInput from "@/components/form/TextInput";
 import { Button } from "@/components/ui/Button";
 
 const syne = Syne({ subsets: ["latin"], weight: ["700", "800"] });
@@ -73,13 +73,13 @@ function StepCredentials({
       </div>
 
       <div className="flex flex-col gap-4">
-        <Input
-          variant="email"
+        <TextInput
+          type="email"
           label="Email address"
           placeholder="Enter your email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          state={emailError ? "error" : email && isValidEmail(email) ? "filled" : "default"}
+          state={emailError ? "error" : email && isValidEmail(email) ? "success" : "default"}
           errorMessage="Please enter a valid email address"
           onBlur={() => setTouched((t) => ({ ...t, email: true }))}
         />
