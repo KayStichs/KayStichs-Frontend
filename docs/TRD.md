@@ -1,4 +1,4 @@
-# **KAYSTICHS**
+# **KAYSTITCHS**
 
 ## **Learn-to-Earn Education Platform on Stellar**
 
